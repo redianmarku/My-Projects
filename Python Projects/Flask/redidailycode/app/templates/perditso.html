@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+  <style type="text/css">
+    .file-field.medium .file-path-wrapper {
+    height: 3rem; }
+    .file-field.medium .file-path-wrapper .file-path {
+    height: 2.8rem; }
+
+    .file-field.big-2 .file-path-wrapper {
+    height: 3.7rem; }
+    .file-field.big-2 .file-path-wrapper .file-path {
+    height: 3.5rem; }
+  </style>
+</head>
+ <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+       <div class="content-section">
+
+ <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ legend }}</legend>
+               
+                <div class="form-group">
+                    {{ form.titulli.label(class="form-control-label") }}
+                    {% if form.titulli.errors %}
+                        {{ form.titulli(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.titulli.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.titulli(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.permbajtja.label(class="form-control-label" ) }}
+                    {% if form.permbajtja.errors %}
+                        {{ form.permbajtja(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.permbajtja.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.permbajtja(class="form-control form-control-lg", ) }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.imazhi.label(class="form-control-label") }}
+                    {% if form.imazhi.errors %}
+                        {{ form.imazhi(class="form-control file-field form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.imazhi.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.imazhi(class="form-control-file file-field ") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info", value="Perditso") }}
+            </div>
+        </form>
+
+       </div>
+       
+
+      </div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+         <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kerko</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Kerko per...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Shko!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kategorite</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Info</h5>
+          <div class="card-body">
+            Ky web aplikacion eshte krijuar per qellim edukimi. Eshte nje website i krijuar me teknologjite Html, Css dhe Python. Funksionet e websites jane: mund te krijosh llogari dhe te aksesosh llogarine tende, mund te krijosh, te perditsosh dhe te fshishe postime; mund te modifikosh inforacionet dhe imazhin e profilit tuaj etj. Design and Developed by: Redian Marku.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+{% endblock %}

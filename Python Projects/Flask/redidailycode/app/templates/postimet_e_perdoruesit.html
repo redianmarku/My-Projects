@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+     <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Postimet e {{ perdorues.emri_perdoruesit }} ({{ posts.total }})
+        </h1>
+     
+    {% for post in posts.items %}
+        <!-- Blog Post -->
+        {% set img_loc = url_for('static', filename='fotot/' + post.imazhi) %}
+        <div class="card mb-4">
+          
+          <div class="card-body">
+            <img style="height: 50px; width: 50px; margin-right: 16px;" src="{{ url_for('static', filename='fotot/' + post.autori.image_file) }}" class="rounded-circle ">
+             <h4 style="display: inline-block;font-size: 18px;" class="inline-text"><a href="{{ url_for('postimet_e_perdoruesit', emri_perdoruesit=post.autori.emri_perdoruesit) }}">{{ post.autori.emri_perdoruesit }}</a></h4>
+             <hr>
+             {% if post.imazhi %}
+          <img class="card-img-top my-img" src="{{ img_loc }}" >
+          {% else %}
+          <p>Nuk Ka imazh.</p>
+          {% endif %}
+          {% if post.imazhi == 'default1.png' %}
+          {% else %}
+          <hr>
+          {% endif %}
+            <h2 class="card-title">{{ post.titull }}</a></h2>
+            <p class="card-text">{{ post.permbajtja }}</p>
+            <a href="{{ url_for('postim_detail', post_id=post.id) }}" class="btn btn-primary">Me shume &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Postuar me {{ post.data_postimit.strftime('%d-%m-%Y') }} 
+           
+          </div>
+        </div>
+     {% endfor %}
+
+
+    {% for nr_faqeve in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if nr_faqeve %}
+      {% if posts.page == nr_faqeve %}
+       <a style="background-color: #048f83" class="btn btn-info mb-4" href="{{ url_for('postimet_e_perdoruesit', emri_perdoruesit=perdorues.emri_perdoruesit, page=nr_faqeve) }}">{{ nr_faqeve }}</a>
+      {% else %}
+         <a class="btn btn-outline-info mb-4" href="{{ url_for('postimet_e_perdoruesit', emri_perdoruesit=perdorues.emri_perdoruesit, page=nr_faqeve) }}">{{ nr_faqeve }}</a>
+        {% endif %}
+        {% endif %}
+      {% endfor %}
+
+</div>
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md-4">
+
+         <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kerko</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Kerko per...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Shko!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kategorite</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Info</h5>
+          <div class="card-body">
+            Ky web aplikacion eshte krijuar per qellim edukimi. Eshte nje website i krijuar me teknologjite Html, Css dhe Python. Funksionet e websites jane: mund te krijosh llogari dhe te aksesosh llogarine tende, mund te krijosh, te perditsosh dhe te fshishe postime; mund te modifikosh inforacionet dhe imazhin e profilit tuaj etj. Design and Developed by: Redian Marku.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+{% endblock %}

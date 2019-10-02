@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+    
+     <div class="simple-slider">
+        <div class="swiper-container">
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-pagination"></div>
+            <section id="carousel">
+                <div class="carousel slide" data-ride="carousel" id="carousel-1">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item">
+                            <div style="background-image:url(https://www.hitechmv.com/wp-content/uploads/2014/04/computer_network.jpg);"  class="jumbotron pulse animated hero-nature carousel-hero">
+                                <h1 class="hero-title">Ndani idete tuaja</h1>
+                                <p class="hero-subtitle">Postoni kode te ndryshme ne Daily Code.</p>
+                                <p><a class="btn btn-primary hero-button plat" role="button" href="{{ url_for('rreth') }}">Rreth</a></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div style="background-image:url(https://makeawebsitehub.com/wp-content/uploads/2016/02/learn-code-e1455713167295.jpg);" class="jumbotron pulse animated hero-photography carousel-hero">
+                                <h1 class="hero-title">Pershendetje Programues</h1>
+                                <p class="hero-subtitle">Mirsevini ne Daily Code.</p>
+                                <p><a class="btn btn-primary hero-button plat" role="button" href="{{ url_for('hyr') }}">Hyr</a></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item active">
+                            <div style="background-image:url(https://inteng-storage.s3.amazonaws.com/img/iea/nR6bV9jp6o/sizes/learntocodebundle_resize_md.jpg);"   class="jumbotron pulse animated hero-technology carousel-hero">
+                                <h1 class="hero-title">Daily Code</h1>
+                                <p class="hero-subtitle">Vendi i komunikimit dhe bashkpunimit midis programuesve.</p>
+                                <p><a class="btn btn-primary hero-button plat" role="button" href="{{ url_for('regjistrohu') }}">Regjistrohu</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
+                    <ol
+                        class="carousel-indicators">
+                        <li data-target="#carousel-1" data-slide-to="0"></li>
+                        <li data-target="#carousel-1" data-slide-to="1"></li>
+                        <li data-target="#carousel-1" data-slide-to="2" class="active"></li>
+                        </ol>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div></div>
+    <div class="features-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Karakteristikat</h2>
+                <p class="text-center">Eksploro karakteristikat e Daily Code</p>
+            </div>
+            <div class="row justify-content-center features">
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-map-marker icon"></i>
+                        <h3 class="name">Ne cdo vend</h3>
+                        <p class="description">Eshte i lehte te aksesohet ne cdo vend.&nbsp;<br></p><a class="learn-more" href="{{ url_for('regjistrohu') }}">Me shume »</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-clock-o icon"></i>
+                        <h3 class="name">Gjithmone i mundshem</h3>
+                        <p class="description">Mund te krijoni gjithmone postime te reja.&nbsp;</p><a class="learn-more" href="{{ url_for('regjistrohu') }}">Me shume »</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-list-alt icon"></i>
+                        <h3 class="name">I lehte ne perdorim</h3>
+                        <p class="description">Ka nje dizajnj modern dhe terheqes.&nbsp;</p><a class="learn-more" href="{{ url_for('regjistrohu') }}">Me shume »</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-leaf icon"></i>
+                        <h3 class="name">Responsive</h3>
+                        <p class="description">Duket mire ne cdo paisje dhe ekaraan.&nbsp;</p><a class="learn-more" href="{{ url_for('regjistrohu') }}">Me shume »</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-plane icon"></i>
+                        <h3 class="name">I shpejte</h3>
+                        <p class="description">Nje nder websitet me te shpejta.&nbsp;</p><a class="learn-more" href="{{ url_for('regjistrohu') }}">Me shume »</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-phone icon"></i>
+                        <h3 class="name">Versioni Mobile</h3>
+                        <p class="description">Ka pamje te mire edhe ne paisjet celular.&nbsp;</p><a class="learn-more" href="{{ url_for('regjistrohu') }}">Me shume »</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

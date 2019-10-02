@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+ <div class="register-photo">
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form method="post" >
+                {{ form.hidden_tag() }}
+                <h2 class="text-center"><strong>Krijo</strong> nje llogari.</h2>
+
+
+                <div class="form-group">
+                 {% if form.emri_perdoruesit.errors %}
+                        {{ form.emri_perdoruesit(class="form-control is-invalid", placeholder="Username") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.emri_perdoruesit.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.emri_perdoruesit(class="form-control", placeholder="Username") }}
+                    {% endif %} </div>
+
+
+                <div class="form-group">
+                 {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid", placeholder="Email") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.email(class="form-control", placeholder="Email") }}
+                    {% endif %} </div> 
+
+
+                <div class="form-group"> 
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control is-invalid", placeholder="Fjalkalimi") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control", placeholder="Fjalkalimi") }}
+                    {% endif %} </div>
+
+
+                <div class="form-group"> 
+                    {% if form.konfirmo_password.errors %}
+                        {{ form.konfirmo_password(class="form-control is-invalid", placeholder="Konfirmo fjalkalimin") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.konfirmo_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.konfirmo_password(class="form-control", placeholder="Konfirmo fjalkalimin") }}
+                    {% endif %} </div>
+                <div class="form-group">
+                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">Pranoj kushtet e perdorimit.</label></div>
+                </div>
+                <div class="form-group">{{ form.submit(class="btn btn-primary btn-block") }}</div><a class="already" href="#">Tashme ke nje llogari. Kliko per te hyre.</a></form>
+        </div>
+    </div>
+{% endblock %}

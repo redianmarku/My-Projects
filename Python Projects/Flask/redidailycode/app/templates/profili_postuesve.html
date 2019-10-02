@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+  <style type="text/css">
+    
+    .btn-outline-info:hover{
+          background-color: #84ffb2;
+    }
+    .large{
+        size: 20px;
+        text-decoration: bold;
+    }
+
+  </style>
+</head>
+<div class="container">
+	<div class="row">
+
+      
+   {% set img_loc = url_for('static', filename='fotot/' + posts.autori.image_file) %}
+	<div class="col-md">
+    <div border='1' class=" mt-4 content-section">
+  <div class="media">
+    <img class="rounded-circle account-img" src=" {{ image_loc }}">
+    <div class="media-body">
+      <h2 class="account-heading">{{ posts.autori.emri_perdoruesit }}</h2>
+      <p class="text-secondary">{{ posts.autori.image_file }}</p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+</div></div>
+{% endblock %}

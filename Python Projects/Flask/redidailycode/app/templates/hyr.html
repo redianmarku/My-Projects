@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Login-Form-with-Photo.css') }}">
+</head>
+
+ <div class="register-photo">
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form method="post" >
+                {{ form.hidden_tag() }}
+                <h2 class="text-center">Hyr ne <strong>Daily Code</strong></h2>
+
+
+
+
+                <div class="form-group">
+                 {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid", placeholder="Email") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.email(class="form-control", placeholder="Email") }}
+                    {% endif %} </div> 
+
+
+                <div class="form-group"> 
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control is-invalid", placeholder="Fjalkalimi") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control", placeholder="Fjalkalimi") }}
+                    {% endif %} </div>
+
+                <div class="form-group">
+                    <div class="form-check"><label class="form-check-label">{{ form.mbajmend(class="form-check-input") }}Mbaj mend.</label></div>
+                </div>
+                <div class="form-group">{{ form.submit(class="btn btn-primary btn-block") }}</div><a class="already" href="{{ url_for('reset_request') }}">Ke harruar fjalkalimin?</a></form>
+        </div>
+    </div>
+{% endblock %}

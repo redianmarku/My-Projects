@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block content %}
+
+<head>
+	<style type="text/css">
+		.file-field.medium .file-path-wrapper {
+		height: 3rem; }
+		.file-field.medium .file-path-wrapper .file-path {
+		height: 2.8rem; }
+
+		.file-field.big-2 .file-path-wrapper {
+		height: 3.7rem; }
+		.file-field.big-2 .file-path-wrapper .file-path {
+		height: 3.5rem; }
+	</style>
+</head>
+ <div class="container">
+
+    <div  class="row">
+
+      <!-- Blog Entries Column -->
+      <div style="margin-top: 20px;" class="col-md-8">
+
+       
+  
+           
+         {% set img_loc = url_for('static', filename='fotot/' + postim.imazhi) %}
+        <div class="card mb-4">
+          
+          <div class="card-body">
+            <img style="height: 50px; width: 50px; margin-right: 16px;" src="{{ url_for('static', filename='fotot/' + postim.autori.image_file) }}" class="rounded-circle ">
+             <h4 style="display: inline-block;font-size: 18px;" class="inline-text">{{ postim.autori.emri_perdoruesit }}</h4>
+             <hr>
+             {% if postim.imazhi %}
+          <img class=" card-img-top my-img" src="{{ img_loc }}" >
+          {% else %}
+          <p>Nuk Ka imazh.</p>
+          {% endif %}
+          {% if postim.imazhi == 'default1.png' %}
+          {% else %}
+          <hr>
+          {% endif %}
+            <h2 class="card-title">{{ postim.titull }}</a></h2>
+            <p class="card-text">{{ postim.permbajtja }}</p>
+            {% if postim.autori == current_user %}
+            <a href="{{ url_for('perditso', post_id=postim.id) }}" class="btn btn-primary">Perditso</a> 
+            <button type="button" class="btn btn-danger ml-2" data-toggle='modal' data-target="#deleteModel">Fshij</button>
+            {% endif %}
+          </div>
+          <div class="card-footer text-muted">
+            Postuar me {{ postim.data_postimit.strftime('%d-%m-%Y') }} 
+           
+          </div>
+        </div>
+    
+
+<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModelLabel">Fshij Postimin?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Mbyll</button>
+        <form action="{{ url_for('fshij', post_id=postim.id) }}" method="POST">
+          <input type="submit" value="Fshij" class="btn btn-danger">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="col-md-4">
+      <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kerko</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Kerko per...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Shko!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kategorite</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Info</h5>
+          <div class="card-body">
+            Ky web aplikacion eshte krijuar per qellim edukimi. Eshte nje website i krijuar me teknologjite Html, Css dhe Python. Funksionet e websites jane: mund te krijosh llogari dhe te aksesosh llogarine tende, mund te krijosh, te perditsosh dhe te fshishe postime; mund te modifikosh inforacionet dhe imazhin e profilit tuaj etj. Design and Developed by: Redian Marku.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+
+  <!-- /.container -->
+
+
+{% endblock %}

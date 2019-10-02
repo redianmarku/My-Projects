@@ -1,0 +1,76 @@
+.file-field.medium .file-path-wrapper {
+height: 3rem; }
+.file-field.medium .file-path-wrapper .file-path {
+height: 2.8rem; }
+
+.file-field.big-2 .file-path-wrapper {
+height: 3.7rem; }
+.file-field.big-2 .file-path-wrapper .file-path {
+height: 3.5rem; }
+
+
+.profili_border{
+	border: none;
+}
+
+.profili_border:active{
+	border:1px solid black;
+
+}
+
+.img-round {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  border-radius: 50%;
+
+  > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 375px){
+    .account-img {
+      height: 91px;
+      width: 91px;
+      margin-right: 20px;
+      margin-bottom: 16px;
+  }
+
+}
+
+.file-field{
+  background-color: #d1f9d1;
+  width: 100%;
+  border-radius: 5px;
+  color: black;
+  border:2px solid grey;
+  padding: 10px;
+}
+
+.my-img{
+  width: 100%;
+  height: 50%;
+}
+
+.article-img {
+  height: 50px;
+  width: 50px;
+  margin-right: 16px;
+}
+
+.inline-text{
+  display: inline-block;
+  font-size: 18px;
+}

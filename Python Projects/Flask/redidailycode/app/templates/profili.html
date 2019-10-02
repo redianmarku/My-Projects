@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+  <style type="text/css">
+    
+    .btn-outline-info:hover{
+          background-color: #84ffb2;
+    }
+
+  </style>
+</head>
+<div class="container">
+	<div class="row">
+
+	<div class="col-md">
+    <div border='1' class=" mt-4 content-section">
+  <div class="media">
+    <img class="rounded-circle account-img" src=" {{ image_loc }}">
+    <div class="media-body">
+      <h2 class="account-heading">{{ current_user.emri_perdoruesit }}</h2>
+      <p class="text-secondary">{{ current_user.email }}</p>
+    </div>
+  </div>
+</div>
+<form method="POST" action="" enctype="multipart/form-data">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Informacionet e llogarise</legend>
+				<div class="form-group">
+
+					{{ form.emri_perdoruesit.label(class="form-control-label") }}
+					{% if form.emri_perdoruesit.errors %}
+                        {{ form.emri_perdoruesit(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.emri_perdoruesit.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.emri_perdoruesit(class="profili_border form-control form-control-lg") }}
+                    {% endif %}
+					
+				</div>
+				<div class="form-group">
+					{{ form.email.label(class="form-control-label") }}
+					{% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="profili_border form-control form-control-lg") }}
+                    {% endif %}
+				</div>
+
+                <div class="form-group">
+                    {{ form.foto.label() }}
+                    {{ form.foto(class="form-control-file file-field") }}
+                    {% if form.foto.errors %}
+                        {% for error in form.foto.error %}
+                            <span class="text-danger">{{ errors }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+				
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info", style='color: #238a49;
+    border-color: #4be484;') }}
+			</div>
+		</form>
+</div>
+</div>
+
+
+
+
+      <!-- Sidebar Widgets Column -->
+      <div class="col-md">
+
+        <!-- Search Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kerko</h5>
+          <div class="card-body">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Kerko per...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Shko!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Kategorite</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Info</h5>
+          <div class="card-body">
+            Ky web aplikacion eshte krijuar per qellim edukimi. Eshte nje website i krijuar me teknologjite Html, Css dhe Python. Funksionet e websites jane: mund te krijosh llogari dhe te aksesosh llogarine tende, mund te krijosh, te perditsosh dhe te fshishe postime; mund te modifikosh inforacionet dhe imazhin e profilit tuaj etj. Design and Developed by: Redian Marku.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.row -->
+</div>
+
+
+
+  <!-- /.container -->
+
+{% endblock %}

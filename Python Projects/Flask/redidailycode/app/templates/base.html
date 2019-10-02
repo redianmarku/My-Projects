@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='fotot/favicon-32x32.png') }}" sizes="32x32" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    {% if title %}
+    <title>Daily Code - {{ title }}</title>
+    {% else %}
+    <title>Daily Code</title>
+    {% endif %}
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Features-Boxed.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Footer-Dark.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Simple-Slider.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/Registration-Form-with-Photo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/font-awesome.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/best-carousel-slide.css') }}">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="{{ url_for('index') }}">Daily Code</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse"
+                    id="navcol-1">
+                    {% if current_user.is_authenticated %}
+                    <ul class="nav navbar-nav mr-auto">
+                        
+                            
+                            <li style="font-size: 18px; text-decoration: bold;" class="nav-item" role="presentation"><a class="nav-link " href="{{ url_for('postime' ) }}">Postime</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link " href="{{ url_for('profili') }}">Profili</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link " href="{{ url_for('rreth') }}">Rreth</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link " href="{{ url_for('index') }}">Te reja</a></li>
+                           
+
+                     </ul>        
+                            <span style="margin-left: 70px;" class="navbar-text actions"> <a class="login btn btn-light action-button" href="{{ url_for('krijo_postim') }}">Krijo Postim</a></span>
+                            <span  class="navbar-text actions"> <a class="login btn btn-light action-button" href="{{ url_for('dil') }}">Dil</a></span>
+                        {% else %}
+                         <ul class="nav navbar-nav mr-auto">
+
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('index') }}">Kryefaqja</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="{{ url_for('rreth') }}">Rreth</a></li> 
+                            
+                          </ul> 
+                   <span class="navbar-text actions"> <a class="login" href="{{ url_for('hyr') }}">Hyr</a><a class="btn btn-light action-button" role="button" href="{{ url_for('regjistrohu') }}">Regjistrohu</a></span></div>
+            </div>      {% endif %}
+        </nav>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+              
+                <div style="padding:20px 0px 20px 10px" class=" alert-{{ category }}">
+                    <div class="container">
+                  {{ message }}
+                </div>
+            </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+   
+   {% block content %}{% endblock %}
+   
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Sherbime</h3>
+                        <ul>
+                            <li><a href="#">Komunikim</a></li>
+                            <li><a href="#">Programim</a></li>
+                            <li><a href="#">Dizajnim</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Rreth</h3>
+                        <ul>
+                            <li><a href="#">Nesh</a></li>
+                            <li><a href="#">Skuadres Tone</a></li>
+                            <li><a href="#">Krijuesve</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Daily Code</h3>
+                        <p>Daily Code eshte nje website shqiptar i cili sherben per komunikimin dhe bashkpunimin midis programuesve.</p>
+                    </div>
+                    <div class="col item social"><a href="https://www.facebook.com/redi.marku.9"><i class="icon ion-social-facebook"></i></a><a href="https://twiter.com"><i class="icon ion-social-twitter"></i></a><a href="https://www.snapchat.com/"><i class="icon ion-social-snapchat"></i></a><a href="https://www.instagram.com/redian_/"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Daily Code © 2019</p>
+            </div>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/Simple-Slider.js') }}"></script>
+</body>
+
+</html>
