@@ -1,0 +1,19 @@
+html{
+  background-color: black;
+}
+#oraid{
+  color:white;
+  font-size: 60px;
+  font-family:sans-serif;
+  text-align: center;
+
+}
+
+.canvas-con{
+  text-align: center;
+}
+
+#canavas{
+  text-align: center;
+  display: inline-block;
+}
